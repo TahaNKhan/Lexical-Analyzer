@@ -18,6 +18,7 @@ void initTrieStruct();
 void insertToTrie(string);
 
 void printSwitchTable(){
+    printf("\nSwitch Table:");
     char cs[52];
     for(int i = 65;i < 91; i++){
         cs[i-65] = (char) i;
@@ -26,43 +27,72 @@ void printSwitchTable(){
         cs[i-97+26] = (char) i;
 
     }
-    printf("\n");
-    for(int i = 0,b=0,a=0; i < 4;i++){
+    int gothru = 1,gothru2 = 1;
+    for(int i = 0,b=0,a=0; i < 5;i++){
+        printf("\n");
         for(;b<52;b++){
-            printf("%5c ", cs[b]);
-            if(b+1%20 == 0)break;
+            printf("%2c ", cs[b]);
+
+            if((b+1)%11 == 0 && gothru){
+                gothru = 0;
+                ++b;
+                break;
+            }
+            gothru = 1;
 
         }
         printf("\n");
         for(;a<52;a++){
-            printf("%5d ", theStructure.switcharr[a]);
-            if(a+1%20 == 0)break;
+            printf("%2d ", theStructure.switcharr[a]);
+            if((a+1)%11 == 0 && gothru2){
+                gothru2 = 0;
+                ++a;
+                break;
+            }
+            gothru2 = 1;
 
         }
     }
 }
 
 void printSymbolTable(){
-    printf("\n");
+    printf("\nSymbol Table:\n");
+    int gothru1 = 1, gothru2 = 1, gothru3 = 1;
     for(int i = 0,b=0,a=0,c=0; i < 4;i++){
         for(;c<theStructure.symbol.size();c++){
 
-            printf("%5d ", c);
-            if(c%20+1 == 0)break;
+            printf("%3d ", c);
+            if((c+1)%11 == 0 && gothru1){
+                gothru1 = 0;
+                ++c;
+                break;
+            }
+            gothru1 = 1;
 
         }
         printf("\n");
         for(;b<theStructure.symbol.size();b++){
 
-            printf("%5c ", theStructure.symbol[b]);
-            if(b%20+1 == 0)break;
+            printf("%3c ", theStructure.symbol[b]);
+            if((b+1)%11 == 0 && gothru2){
+                gothru2 = 0;
+                ++b;
+                break;
+            }
+            gothru2 = 1;
 
         }
         printf("\n");
         for(;a<theStructure.symbol.size();a++){
 
-            printf("%5d ", theStructure.next[a]);
-             if(a%20+1 == 0)break;
+            printf("%3d ", theStructure.next[a]);
+            if((a+1)%11 == 0 && gothru3){
+                gothru3 = 0;
+                ++a;
+                printf("\n");
+                break;
+            }
+            gothru3 = 1;
 
         }
     }
@@ -153,6 +183,7 @@ void insertToTrie(char *chars){
                 theStructure.last++;
             }
             theStructure.symbol[next] = '*';
+            theStructure.last++;
 
         }
 
