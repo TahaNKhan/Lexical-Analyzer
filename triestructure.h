@@ -56,10 +56,11 @@ void printSwitchTable(){
 }
 
 void printSymbolTable(){
+    int p = theStructure.last + 1;
     printf("\nSymbol Table:\n");
     int gothru1 = 1, gothru2 = 1, gothru3 = 1;
-    for(int i = 0,b=0,a=0,c=0; i < 4;i++){
-        for(;c<theStructure.symbol.size();c++){
+    for(int i = 0,b=0,a=0,c=0; i < (p/10+1);i++){
+        for(;c < p;c++){
 
             printf("%3d ", c);
             if((c+1)%11 == 0 && gothru1){
@@ -71,7 +72,7 @@ void printSymbolTable(){
 
         }
         printf("\n");
-        for(;b<theStructure.symbol.size();b++){
+        for(; b < p;b++){
 
             printf("%3c ", theStructure.symbol[b]);
             if((b+1)%11 == 0 && gothru2){
@@ -83,7 +84,7 @@ void printSymbolTable(){
 
         }
         printf("\n");
-        for(;a<theStructure.symbol.size();a++){
+        for(;a < p;a++){
 
             printf("%3d ", theStructure.next[a]);
             if((a+1)%11 == 0 && gothru3){
