@@ -20,7 +20,7 @@
 "extends"					{insertToTrie(yytext); printf("extends "); return EXTENDS;}
 "for"						{insertToTrie(yytext); printf("for "); return FOR;}
 "if"						{insertToTrie(yytext); printf("if "); return IF;}
-"implements"					{insertToTrie(yytext); printf("implements "); return IMPLEMENTS;}
+"implements"				{insertToTrie(yytext); printf("implements "); return IMPLEMENTS;}
 "int"						{insertToTrie(yytext); printf("int "); return INT;}
 "interface"					{insertToTrie(yytext); printf("interface "); return INTERFACE;}
 "newarray"					{insertToTrie(yytext); printf("newarray "); return NEWARRAY;}
@@ -58,28 +58,32 @@
 [a-zA-Z_]?\"(\\.|[^\\"])*\"	{printf("stringconstant "); return STRINGCONSTANT;}
 "true"						{insertToTrie(yytext);printf("booleanconstant "); return BOOLEANCONSTANT;}
 "false"						{insertToTrie(yytext);printf("booleanconstant "); return BOOLEANCONSTANT;}
-[a-zA-Z].[a-zA-Z0-9]+		{insertToTrie(yytext);printf("id "); return ID;}
+[a-zA-Z]([a-zA-Z]|[0-9]|"_")*		{insertToTrie(yytext);printf("id "); return ID;}
 \n							{printf("\n");}
-\t+							; // ignore whitespace
+[ \t]+						; // ignore whitespace
+
 .							;
 
 
 
 
 %%
-
+// keeps on going until there is not more input then prints out switch and symbol table
 int main(int argc, char *argv[]){
     initTrieStruct();
 
-    while(1){
-    yylex();
+
+    while(yylex())
+    {}
     printSwitchTable();
     printSymbolTable();
-    }
+
+
+
     return 0;
 }
 
-
+// no clue what this does but the video tutorial wanted told me to add this.
 int yywrap(void){
 
 	return 1;

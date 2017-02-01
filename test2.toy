@@ -1,0 +1,17 @@
+/*
+this function takes in an int and squares it
+*/
+int square(int x){
+	return int x*x;
+}
+
+int main(){
+	// initialize int for user input
+	int userinput;
+	println("Enter a number: ");
+	userinput = readln();
+	int answer = square(userinput);
+	println("The square of that number is: ", answer);
+	
+
+}

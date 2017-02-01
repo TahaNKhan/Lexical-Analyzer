@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// trie structure.
 struct TrieStruct{
 	int MAX;
 	int switcharr[52];
@@ -17,9 +18,11 @@ void printSymbolTable();
 void initTrieStruct();
 void insertToTrie(string);
 
+// this function prints out the switch table
 void printSwitchTable(){
-    printf("\nSwitch Table:");
+    printf("\n\n\nSwitch Table:");
     char cs[52];
+    // fill up the cs array with character A-Z and a-z
     for(int i = 65;i < 91; i++){
         cs[i-65] = (char) i;
     }
@@ -27,13 +30,18 @@ void printSwitchTable(){
         cs[i-97+26] = (char) i;
 
     }
-    int gothru = 1,gothru2 = 1;
+    int gothru = 1,gothru2 = 1,gothru3 = 1, gothru4 = 1;
     for(int i = 0,b=0,a=0; i < 5;i++){
         printf("\n");
         for(;b<52;b++){
-            printf("%2c ", cs[b]);
+            // prints out a space for the first line
+            if(gothru3){printf("%-8s"," ");gothru3 = 0;}
+            // prints out space for lines after the first one
+            if(!gothru)printf("%-8s"," ");
+            printf("%5c ", cs[b]);
 
-            if((b+1)%11 == 0 && gothru){
+            if((b+1)%20 == 0 && gothru){
+
                 gothru = 0;
                 ++b;
                 break;
@@ -43,10 +51,15 @@ void printSwitchTable(){
         }
         printf("\n");
         for(;a<52;a++){
-            printf("%2d ", theStructure.switcharr[a]);
-            if((a+1)%11 == 0 && gothru2){
+            // prints out switch for the first line
+            if(gothru4){printf("%-8s","Switch: ");gothru4 = 0;}
+            // prints out switch for lines after first
+            if(!gothru2)printf("%-8s","Switch: ");
+            printf("%5d ", theStructure.switcharr[a]);
+            if((a+1)%20 == 0 && gothru2){
                 gothru2 = 0;
                 ++a;
+                printf("\n\n");
                 break;
             }
             gothru2 = 1;
@@ -55,15 +68,19 @@ void printSwitchTable(){
     }
 }
 
+// prints out the symbol table
 void printSymbolTable(){
     int p = theStructure.last + 1;
-    printf("\nSymbol Table:\n");
-    int gothru1 = 1, gothru2 = 1, gothru3 = 1;
+    printf("\n\n\nSymbol Table:\n");
+    // variables used to go to next lines.
+    int gothru1 = 1, gothru2 = 1, gothru3 = 1,gothru5 = 1,gothru6 = 1,gothru7 = 1;
     for(int i = 0,b=0,a=0,c=0; i < (p/10+1);i++){
         for(;c < p;c++){
-
-            printf("%3d ", c);
-            if((c+1)%11 == 0 && gothru1){
+            if(gothru5)printf("%-8s"," ");
+            gothru5 = 0;
+            if(!gothru1)printf("%-8s"," ");
+            printf("%5d ", c);
+            if((c+1)%20 == 0 && gothru1){
                 gothru1 = 0;
                 ++c;
                 break;
@@ -73,10 +90,13 @@ void printSymbolTable(){
         }
         printf("\n");
         for(; b < p;b++){
-
-            printf("%3c ", theStructure.symbol[b]);
-            if((b+1)%11 == 0 && gothru2){
+            if(gothru6)printf("%-8s","Symbol:");
+            gothru6 = 0;
+            if(!gothru2)printf("%-8s","Symbol:");
+            printf("%5c ", theStructure.symbol[b]);
+            if((b+1)%20 == 0 && gothru2){
                 gothru2 = 0;
+
                 ++b;
                 break;
             }
@@ -85,27 +105,36 @@ void printSymbolTable(){
         }
         printf("\n");
         for(;a < p;a++){
+            if(gothru7)printf("%-8s","next:");
+            gothru7 = 0;
+            if(!gothru3)printf("%-8s","next: ");
+            printf("%5d ", theStructure.next[a]);
+            if((a+1)%20 == 0 && gothru3){
 
-            printf("%3d ", theStructure.next[a]);
-            if((a+1)%11 == 0 && gothru3){
                 gothru3 = 0;
                 ++a;
-                printf("\n");
+                printf("\n\n\n");
                 break;
             }
             gothru3 = 1;
 
         }
     }
+    printf("\n");
 }
 
-void initTrieStruct(){
 
+void initTrieStruct(){
+    // initialize the character vector/array
     theStructure.symbol = vector<char>(100,'|');
+    // initialize next vector/array
     theStructure.next = vector<int>(100,-1);
+    // initial max set to 100
 	theStructure.MAX = 100;
+	// points to the last symbol
 	theStructure.last = 0;
 	for(int i = 0; i < 52; i++) {
+        // fill up the switch array with -1s
 		theStructure.switcharr[i] = -1;
 	}
 
@@ -114,21 +143,25 @@ void initTrieStruct(){
 
 void insertToTrie(char *chars){
 
-
+    // resize the array if there isnt enough space
 	if(strlen(chars) + 1 > (theStructure.MAX - theStructure.last + 1)){
 		theStructure.symbol.resize(theStructure.MAX*2,'|');
 		theStructure.next.resize(theStructure.MAX*2, -1);
 		theStructure.MAX = theStructure.MAX*2;
 	}
-
+    // idk why i called it ios, initial of switch?
     int ios;
+    // check if ios is uppercase or lower case and set index based on that
     if(isupper(chars[0])){
 		ios = chars[0] - 'A';
 	}else{
 		ios = (chars[0] - 'a') + 26;
 	}
+
+	// set index found from switch array to nextnext
     int nextnext = theStructure.switcharr[ios];
 
+    // if -1, the string isnt there, add it.
     if (nextnext == -1) {
 
         int slot = theStructure.last;
@@ -159,6 +192,7 @@ void insertToTrie(char *chars){
                     p = theStructure.next[p];
                     continue;
                 }
+                // exit out if no more mathing characters and next table shows a -1
                 exit = true;
                 break;
             }
@@ -166,7 +200,7 @@ void insertToTrie(char *chars){
 
 
         if (exit == true) {
-
+            // probably didnt need a new variable but whatever
             int next;
             if (theStructure.next[p] == -1){
 
@@ -178,7 +212,7 @@ void insertToTrie(char *chars){
 
 
             theStructure.next[p] = next;
-
+            // add the remaining characters to symbol array/vector
             while (i < strlen(chars)){
                 theStructure.symbol[next++] = chars[i++];
                 theStructure.last++;
