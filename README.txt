@@ -1,6 +1,8 @@
 Lexical Analyzer
 ----------------
 
+by Taha Khan
+
 This is a lexical analyzer that analyzes the toy language.
 
 PreReqs:
