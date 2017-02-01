@@ -1,8 +1,14 @@
+class test implements bigtest{
+
 /*
 this function takes in an int and squares it
 */
 int square(int x){
-	return int x*x;
+	return x*x;
+}
+
+double squaredouble(double x){
+	return x*x;
 }
 
 int main(){
@@ -12,6 +18,27 @@ int main(){
 	userinput = readln();
 	int answer = square(userinput);
 	println("The square of that number is: ", answer);
-	
-
+	double y = squaredouble(2.2);
+	double z = squaredouble(2.2E+2);
+	int j = 100/10;
+	int k = 1%10;
+	int l = k+j;
+	int t = k-j;
+	int w = k*j;
+	int i;
+	for(i = 0; i < 20; i++){println("hello world");}
+	int []z;
+	z = newarray(10,int);
+	while(i != 0 && i > 0 || i < 100){
+		println("hi\n");
+		i++;
+		if(i == 25)break;
+	boolean f = true;
+	if(f)println("test2");
+	f = false;
+	if(!f)println("test3");
+	if(i <= 20)print("test4");
+	if(i >= 20)print("test5");
+	return 0;
+}
 }
