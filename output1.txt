@@ -5,10 +5,10 @@ rightbrace
 void id leftparen rightparen leftbrace 
 int id semicolon 
 int id semicolon 
-println leftparen id id intconstant id coma id leftparen intconstant rightparen coma id id id id rightparen semicolon 
+println leftparen stringconstant coma id leftparen intconstant rightparen coma stringconstant rightparen semicolon 
 id assignop intconstant semicolon id assignop intconstant semicolon 
 for leftparen semicolon id lessequal intconstant semicolon rightparen leftbrace id assignop id multiplication id semicolon id assignop id plus intconstant semicolon rightbrace 
-println leftparen id id id intconstant not id coma id rightparen semicolon 
+println leftparen stringconstant coma id rightparen semicolon 
 rightbrace 
 class id leftbrace 
 int id semicolon 
@@ -18,8 +18,8 @@ string id semicolon
 int id semicolon 
 id assignop booleanconstant semicolon 
 id assignop intconstant semicolon id assignop doubleconstant semicolon 
-id assignop id id semicolon 
-while leftparen id assignop leftparen id division intconstant rightparen less intconstant rightparen println leftparen id coma id id not rightparen semicolon 
+id assignop stringconstant semicolon 
+while leftparen id assignop leftparen id division intconstant rightparen less intconstant rightparen println leftparen id coma stringconstant rightparen semicolon 
 id assignop newarray leftparen intconstant coma int rightparen semicolon 
 rightbrace 
 
@@ -27,19 +27,19 @@ rightbrace
 
 Switch Table:
             A     B     C     D     E     F     G     H     I     J     K     L     M     N 
-Switch:    -1    -1    -1    -1    -1   100    -1    -1    -1    -1    -1    -1    -1    -1 
+Switch:    -1    -1    -1    -1    -1    53    -1    -1    -1    -1    -1    -1    -1    -1 
 
 
             O     P     Q     R     S     T     U     V     W     X     Y     Z     a     b 
-Switch:    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1   131   114 
+Switch:    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    86    69 
 
 
             c     d     e     f     g     h     i     j     k     l     m     n     o     p 
-Switch:    90   105    16     3    -1   136     0    -1    -1    -1    24   155    46    33 
+Switch:    43    58    16     3    -1    -1     0    -1    -1    -1    24    96    -1    33 
 
 
             q     r     s     t     u     v     w     x     y     z 
-Switch:    -1    10   125    28    -1    20   141     7    -1    -1 
+Switch:    -1    10    80    28    -1    20    91     7    -1    -1 
 
 
 
@@ -47,7 +47,7 @@ Switch:    -1    10   125    28    -1    20   141     7    -1    -1
 Symbol Table:
             0     1     2     3     4     5     6     7     8     9    10    11    12    13 
 Symbol:     n     t     *     a     c     t     *     *     f     *     e     t     u     r 
-next:       8    -1    -1    50    -1    -1    40    -1    48    -1    -1    57    -1    -1 
+next:       8    -1    -1    40    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
 
 
            14    15    16    17    18    19    20    21    22    23    24    25    26    27 
@@ -57,56 +57,32 @@ next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
 
            28    29    30    31    32    33    34    35    36    37    38    39    40    41 
 Symbol:     o     t     a     l     *     r     i     n     t     l     n     *     o     r 
-next:      54    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
+next:      87    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    64    -1 
 
 
            42    43    44    45    46    47    48    49    50    51    52    53    54    55 
-Symbol:     i     a     l     *     f     *     s     *     r     o     m     *     h     e 
-next:      -1    -1    -1    -1    -1    -1    76    -1    65    -1    -1    -1   132    -1 
+Symbol:     *     l     a     s     s     *     s     4     1     1     *     u     n     n 
+next:      -1    48    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
 
 
            56    57    58    59    60    61    62    63    64    65    66    67    68    69 
-Symbol:     *     c     u     r     s     i     v     e     *     u     n     c     t     i 
-next:      -1    85    -1    -1    -1    -1    -1    -1    -1    73    -1   111    -1    -1 
+Symbol:     y     *     o     u     b     l     e     *     u     n     n     y     *     o 
+next:      -1    -1    -1    -1    -1    -1    -1    -1    76    -1    -1    -1    -1    -1 
 
 
            70    71    72    73    74    75    76    77    78    79    80    81    82    83 
-Symbol:     o     n     *     o     r     *     t     e     r     a     t     i     v     e 
-next:      -1    -1    -1   121    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
+Symbol:     o     l     e     a     n     *     l     a     g     *     t     r     i     n 
+next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
 
 
            84    85    86    87    88    89    90    91    92    93    94    95    96    97 
-Symbol:     *     s     u     l     t     *     l     a     s     s     *     s     4     1 
-next:      -1    -1    -1    -1    -1    -1    95    -1    -1    -1    -1    -1    -1    -1 
-
-
-           98    99   100   101   102   103   104   105   106   107   108   109   110   111 
-Symbol:     1     *     u     n     n     y     *     o     u     b     l     e     *     n 
+Symbol:     g     *     *     r     u     e     *     h     i     l     e     *     e     w 
 next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
 
 
-          112   113   114   115   116   117   118   119   120   121   122   123   124   125 
-Symbol:     y     *     o     o     l     e     a     n     *     l     a     g     *     t 
-next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
-
-
-          126   127   128   129   130   131   132   133   134   135   136   137   138   139 
-Symbol:     r     i     n     g     *     *     r     u     e     *     e     l     l     o 
-next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1   151    -1    -1    -1 
-
-
-          140   141   142   143   144   145   146   147   148   149   150   151   152   153 
-Symbol:     *     o     r     l     d     *     h     i     l     e     *     a     v     e 
-next:      -1   146    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
-
-
-          154   155   156   157   158   159   160   161   162   163 
-Symbol:     *     e     w     a     r     r     a     y     *     | 
-next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
-
-
-
-
+           98    99   100   101   102   103 
+Symbol:     a     r     r     a     y     * 
+next:      -1    -1    -1    -1    -1    -1 
 
 
 

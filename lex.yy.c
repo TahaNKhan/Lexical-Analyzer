@@ -892,7 +892,7 @@ case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
 #line 14 "lexfile.l"
-; // single line comments
+;// single line comments
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
@@ -1143,12 +1143,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 65 "lexfile.l"
+#line 64 "lexfile.l"
 ;
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 70 "lexfile.l"
+#line 69 "lexfile.l"
 ECHO;
 	YY_BREAK
 #line 1155 "lex.yy.c"
@@ -2152,21 +2152,19 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 70 "lexfile.l"
+#line 69 "lexfile.l"
 
 
 // keeps on going until there is not more input then prints out switch and symbol table
 int main(int argc, char *argv[]){
+
+    // initialize the triestructure with vectors and arrays.
     initTrieStruct();
 
 
-    while(yylex())
-    {}
+    while(yylex()){}
     printSwitchTable();
     printSymbolTable();
-
-
-
     return 0;
 }
 

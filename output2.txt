@@ -1,5 +1,11 @@
+class id implements id leftbrace 
+
 int id leftparen int id rightparen leftbrace 
-return int id multiplication id semicolon 
+return id multiplication id semicolon 
+rightbrace 
+
+double id leftparen double id rightparen leftbrace 
+return id multiplication id semicolon 
 rightbrace 
 
 int id leftparen rightparen leftbrace 
@@ -8,8 +14,29 @@ println leftparen stringconstant rightparen semicolon
 id assignop readln leftparen rightparen semicolon 
 int id assignop id leftparen id rightparen semicolon 
 println leftparen stringconstant coma id rightparen semicolon 
-
-
+double id assignop id leftparen doubleconstant rightparen semicolon 
+double id assignop id leftparen doubleconstant rightparen semicolon 
+int id assignop intconstant division intconstant semicolon 
+int id assignop intconstant mod intconstant semicolon 
+int id assignop id plus id semicolon 
+int id assignop id minus id semicolon 
+int id assignop id multiplication id semicolon 
+int id semicolon 
+for leftparen id assignop intconstant semicolon id less intconstant semicolon id plus plus rightparen leftbrace println leftparen stringconstant rightparen semicolon rightbrace 
+int id semicolon 
+id assignop newarray leftparen intconstant coma int rightparen semicolon 
+while leftparen id notequal intconstant and id greater intconstant or id less intconstant rightparen leftbrace 
+println leftparen stringconstant rightparen semicolon 
+id plus plus semicolon 
+if leftparen id equal intconstant rightparen break semicolon 
+boolean id assignop booleanconstant semicolon 
+if leftparen id rightparen println leftparen stringconstant rightparen semicolon 
+id assignop booleanconstant semicolon 
+if leftparen not id rightparen println leftparen stringconstant rightparen semicolon 
+if leftparen id lessequal intconstant rightparen id leftparen stringconstant rightparen semicolon 
+if leftparen id greaterequal intconstant rightparen id leftparen stringconstant rightparen semicolon 
+return intconstant semicolon 
+rightbrace 
 rightbrace 
 
 
@@ -20,37 +47,73 @@ Switch:    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
 
 
             O     P     Q     R     S     T     U     V     W     X     Y     Z     a     b 
-Switch:    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    41    -1 
+Switch:    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    80    19 
 
 
             c     d     e     f     g     h     i     j     k     l     m     n     o     p 
-Switch:    -1    -1    -1    -1    -1    -1     0    -1    -1    -1    16    -1    -1    29 
+Switch:     0    42    -1    92    -1    -1     9    88    89    90    55    95    -1    68 
 
 
             q     r     s     t     u     v     w     x     y     z 
-Switch:    -1    10     3    -1    20    -1    -1     9    -1    -1 
+Switch:    -1    36    29     5    59    -1    91    35    86    87 
 
 
 
 
 Symbol Table:
             0     1     2     3     4     5     6     7     8     9    10    11    12    13 
-Symbol:     n     t     *     q     u     a     r     e     *     *     e     t     u     r 
-next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    36    -1    -1 
+Symbol:     l     a     s     s     *     e     s     t     *     m     p     l     e     m 
+next:      -1    -1    -1    -1    -1   122    -1    -1    -1    26    -1    -1    -1    -1 
 
 
            14    15    16    17    18    19    20    21    22    23    24    25    26    27 
-Symbol:     n     *     a     i     n     *     s     e     r     i     n     p     u     t 
-next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
+Symbol:     e     n     t     s     *     i     g     t     e     s     t     *     n     t 
+next:      -1    -1    -1    -1    -1   110    -1    -1    -1    -1    -1    -1   108    -1 
 
 
            28    29    30    31    32    33    34    35    36    37    38    39    40    41 
-Symbol:     *     r     i     n     t     l     n     *     a     d     l     n     *     n 
+Symbol:     *     q     u     a     r     e     *     *     e     t     u     r     n     * 
+next:      -1    -1    -1    -1    -1    -1    48    -1    -1    75    -1    -1    -1    -1 
+
+
+           42    43    44    45    46    47    48    49    50    51    52    53    54    55 
+Symbol:     o     u     b     l     e     *     d     o     u     b     l     e     *     a 
 next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
 
 
-           42    43    44    45    46    47 
-Symbol:     s     w     e     r     *     | 
-next:      -1    -1    -1    -1    -1    -1 
+           56    57    58    59    60    61    62    63    64    65    66    67    68    69 
+Symbol:     i     n     *     s     e     r     i     n     p     u     t     *     r     i 
+next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
+
+
+           70    71    72    73    74    75    76    77    78    79    80    81    82    83 
+Symbol:     n     t     l     n     *     a     d     l     n     *     n     s     w     e 
+next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
+
+
+           84    85    86    87    88    89    90    91    92    93    94    95    96    97 
+Symbol:     r     *     *     *     *     *     *     *     o     r     *     e     w     a 
+next:      -1    -1    -1    -1    -1    -1    -1   103   126    -1    -1    -1    -1    -1 
+
+
+           98    99   100   101   102   103   104   105   106   107   108   109   110   111 
+Symbol:     r     r     a     y     *     h     i     l     e     *     f     *     r     e 
+next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1   115    -1 
+
+
+          112   113   114   115   116   117   118   119   120   121   122   123   124   125 
+Symbol:     a     k     *     o     o     l     e     a     n     *     r     u     e     * 
+next:      -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1    -1 
+
+
+          126   127   128   129   130 
+Symbol:     a     l     s     e     * 
+next:      -1    -1    -1    -1    -1 
+
+
+
+
+
+
 
 

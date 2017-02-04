@@ -70,7 +70,7 @@ void printSwitchTable(){
 
 // prints out the symbol table
 void printSymbolTable(){
-    int p = theStructure.last + 1;
+    int p = theStructure.last;
     printf("\n\n\nSymbol Table:\n");
     // variables used to go to next lines.
     int gothru1 = 1, gothru2 = 1, gothru3 = 1,gothru5 = 1,gothru6 = 1,gothru7 = 1;
@@ -178,7 +178,7 @@ void insertToTrie(char *chars){
 
     } else {
 
-        int exit = false;
+        int allCharsMatch = true;
 
         // check how many characters match
         int i = 1, p = nextnext;
@@ -193,31 +193,26 @@ void insertToTrie(char *chars){
                     continue;
                 }
                 // exit out if no more mathing characters and next table shows a -1
-                exit = true;
+                allCharsMatch = false;
                 break;
             }
         }
 
+        if (!allCharsMatch) {
 
-        if (exit == true) {
-            // probably didnt need a new variable but whatever
-            int next;
             if (theStructure.next[p] == -1){
 
-                next = theStructure.last;
+                nextnext = theStructure.last;
             }else
-                next = theStructure.next[p];
+                nextnext = theStructure.next[p];
 
-
-
-
-            theStructure.next[p] = next;
+            theStructure.next[p] = nextnext;
             // add the remaining characters to symbol array/vector
             while (i < strlen(chars)){
-                theStructure.symbol[next++] = chars[i++];
+                theStructure.symbol[nextnext++] = chars[i++];
                 theStructure.last++;
             }
-            theStructure.symbol[next] = '*';
+            theStructure.symbol[nextnext] = '*';
             theStructure.last++;
 
         }
